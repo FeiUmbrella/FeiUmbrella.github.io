@@ -8,7 +8,7 @@
       <link href="/2022/12/26/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Machine%20Vision/"/>
       <url>/2022/12/26/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Machine%20Vision/</url>
       
-        <content type="html"><![CDATA[<h1 id="机器视觉---大三上备考">机器视觉 - 大三上备考</h1><h2id="分水岭算法实现图像分割任务并理解与边缘检测任务的关系">“分水岭”算法实现图像分割任务并理解与边缘检测任务的关系</h2><p><ahref="https://blog.csdn.net/weixin_39602637/article/details/115844843">实验课给的代码</a></p><h2 id="section"></h2>]]></content>
+        <content type="html"><![CDATA[<h1 id="机器视觉---大三上备考">机器视觉 - 大三上备考</h1><h2id="分水岭算法实现图像分割任务并理解与边缘检测任务的关系数学形态学图形处理">“分水岭”算法实现图像分割任务并理解与边缘检测任务的关系（数学形态学图形处理）</h2><p><ahref="https://blog.csdn.net/weixin_39602637/article/details/115844843">实验课给的代码</a></p><h2id="索贝尔罗伯特普瑞维特拉普拉斯等算子推导过程">索贝尔，罗伯特，普瑞维特，拉普拉斯等算子推导过程</h2><h2 id="霍夫hough变换">霍夫（hough）变换</h2><h2id="欧拉数-课本附带ppt视频37mins处">欧拉数-（课本附带ppt，视频37mins处）</h2><h2 id="采样和量化">采样和量化</h2><h2 id="坐标变换灰度映射均衡化">坐标变换，灰度映射，均衡化</h2><h2 id="噪声滤波">噪声滤波</h2><h2 id="zw编码哈夫曼算术编码">ZW编码，哈夫曼，算术编码</h2><h2id="微分边缘检测分水岭算法图像分割腐蚀和膨胀">微分边缘检测，分水岭算法，图像分割腐蚀和膨胀</h2><ol type="1"><li><p>1-5章最重要，6简答+2计算+1代码实验</p></li><li><p>简答，拉差距，g（要理解课本，不能百度）</p></li><li><p>四次实验报告</p></li><li><p>第五章ppt占30%</p></li></ol>]]></content>
       
       
       <categories>
@@ -104,31 +104,6 @@
     
     
     <entry>
-      <title>Hello World</title>
-      <link href="/2022/10/22/%E5%82%8D%E8%BA%AB%E4%BA%8C%E4%B8%89-%E6%8A%80%E6%9C%AF/hello-world/"/>
-      <url>/2022/10/22/%E5%82%8D%E8%BA%AB%E4%BA%8C%E4%B8%89-%E6%8A%80%E6%9C%AF/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your veryfirst post. Check <a href="https://hexo.io/docs/">documentation</a> formore info. If you get any problems when using Hexo, you can find theanswer in <ahref="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> oryou can ask me on <ahref="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="quick-start">Quick Start</h2><h3 id="create-a-new-post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <ahref="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="run-server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="generate-static-files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <ahref="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="deploy-to-remote-sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <ahref="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 傍身二三 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 技术 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>English words</title>
       <link href="/2022/10/22/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/English-worlds/"/>
       <url>/2022/10/22/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/English-worlds/</url>
@@ -146,6 +121,31 @@
         <tags>
             
             <tag> 研究生考试备考 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2022/10/22/%E5%82%8D%E8%BA%AB%E4%BA%8C%E4%B8%89-%E6%8A%80%E6%9C%AF/hello-world/"/>
+      <url>/2022/10/22/%E5%82%8D%E8%BA%AB%E4%BA%8C%E4%B8%89-%E6%8A%80%E6%9C%AF/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your veryfirst post. Check <a href="https://hexo.io/docs/">documentation</a> formore info. If you get any problems when using Hexo, you can find theanswer in <ahref="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> oryou can ask me on <ahref="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="quick-start">Quick Start</h2><h3 id="create-a-new-post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <ahref="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="run-server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="generate-static-files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <ahref="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="deploy-to-remote-sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <ahref="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 傍身二三 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 技术 </tag>
             
         </tags>
       
