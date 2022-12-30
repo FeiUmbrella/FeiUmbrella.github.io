@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>机器视觉-期末考试 | Umbrella's Blog</title><meta name="author" content="Umbrella"><meta name="copyright" content="Umbrella"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="机器视觉 - 大三上备考 “分水岭”算法实现图像分割任务并理解与边缘检测任务的关系（数学形态学图形处理） 实验课给的代码 索贝尔，罗伯特，普瑞维特，拉普拉斯等算子推导过程 霍夫（hough）变换 欧拉数-（课本附带ppt，视频37mins处） 采样和量化 像素的属性：位置和亮度。 采样：将空间上连续的图像变换成离散点的操作。  采样间隔的大小是个很重要 的参数；  量化：">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>机器视觉-期末考试 | Umbrella's Blog</title><meta name="author" content="Umbrella"><meta name="copyright" content="Umbrella"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="机器视觉 - 大三上备考   1-5章最重要，6简答+2计算+1代码实验 简答，拉差距，g（要理解课本，不能百度） 四次实验报告 第五章ppt占30%   欧拉数-（课本附带ppt，视频37mins处） 采样和量化 像素的属性：位置和亮度。 采样：将空间上连续的图像变换成离散点的操作。  采样间隔的大小是个很重要 的参数；  量化：  取样点数和量化级数的选取：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器视觉-期末考试">
 <meta property="og:url" content="http://example.com/2022/12/26/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Machine%20Vision/index.html">
 <meta property="og:site_name" content="Umbrella&#39;s Blog">
-<meta property="og:description" content="机器视觉 - 大三上备考 “分水岭”算法实现图像分割任务并理解与边缘检测任务的关系（数学形态学图形处理） 实验课给的代码 索贝尔，罗伯特，普瑞维特，拉普拉斯等算子推导过程 霍夫（hough）变换 欧拉数-（课本附带ppt，视频37mins处） 采样和量化 像素的属性：位置和亮度。 采样：将空间上连续的图像变换成离散点的操作。  采样间隔的大小是个很重要 的参数；  量化：">
+<meta property="og:description" content="机器视觉 - 大三上备考   1-5章最重要，6简答+2计算+1代码实验 简答，拉差距，g（要理解课本，不能百度） 四次实验报告 第五章ppt占30%   欧拉数-（课本附带ppt，视频37mins处） 采样和量化 像素的属性：位置和亮度。 采样：将空间上连续的图像变换成离散点的操作。  采样间隔的大小是个很重要 的参数；  量化：  取样点数和量化级数的选取：">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg">
 <meta property="article:published_time" content="2022-12-26T13:06:00.000Z">
-<meta property="article:modified_time" content="2022-12-26T13:06:00.000Z">
+<meta property="article:modified_time" content="2022-12-30T07:39:00.000Z">
 <meta property="article:author" content="Umbrella">
 <meta property="article:tag" content="期末考试">
 <meta name="twitter:card" content="summary">
@@ -53,7 +53,7 @@
   isHome: false,
   isHighlightShrink: true,
   isToc: true,
-  postUpdate: '2022-12-26 21:06:00'
+  postUpdate: '2022-12-30 15:39:00'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -142,14 +142,15 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://img-blog.csdnimg.cn/4500002a681d49c586c22a88e4ec5868.bmp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Umbrella's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">机器视觉-期末考试</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-12-26T13:06:00.000Z" title="发表于 2022-12-26 21:06:00">2022-12-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-12-26T13:06:00.000Z" title="更新于 2022-12-26 21:06:00">2022-12-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA/">何当共剪</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="机器视觉-期末考试"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="机器视觉---大三上备考">机器视觉 - 大三上备考</h1>
-<h2
-id="分水岭算法实现图像分割任务并理解与边缘检测任务的关系数学形态学图形处理">“分水岭”算法实现图像分割任务并理解与边缘检测任务的关系（数学形态学图形处理）</h2>
-<p><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39602637/article/details/115844843">实验课给的代码</a></p>
-<h2
-id="索贝尔罗伯特普瑞维特拉普拉斯等算子推导过程">索贝尔，罗伯特，普瑞维特，拉普拉斯等算子推导过程</h2>
-<h2 id="霍夫hough变换">霍夫（hough）变换</h2>
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://img-blog.csdnimg.cn/4500002a681d49c586c22a88e4ec5868.bmp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Umbrella's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">机器视觉-期末考试</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-12-26T13:06:00.000Z" title="发表于 2022-12-26 21:06:00">2022-12-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-12-30T07:39:00.000Z" title="更新于 2022-12-30 15:39:00">2022-12-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA/">何当共剪</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="机器视觉-期末考试"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="机器视觉---大三上备考">机器视觉 - 大三上备考</h1>
+<blockquote>
+<ol type="1">
+<li><p>1-5章最重要，6简答+2计算+1代码实验</p></li>
+<li><p>简答，拉差距，g（要理解课本，不能百度）</p></li>
+<li><p>四次实验报告</p></li>
+<li><p>第五章ppt占30%</p></li>
+</ol>
+</blockquote>
 <h2
 id="欧拉数-课本附带ppt视频37mins处">欧拉数-（课本附带ppt，视频37mins处）</h2>
 <h2 id="采样和量化">采样和量化</h2>
@@ -323,11 +324,386 @@ alt="gamma变换" />
 <figcaption aria-hidden="true">gamma变换</figcaption>
 </figure>
 </blockquote>
-<h2 id="均衡化">均衡化</h2>
+<h2 id="直方图均衡化">直方图均衡化</h2>
+<p>直方图：是<strong>灰度级的函数</strong>，描述的是图像中每种灰度级像素的个数，反映图像中每种灰度出现的频率。</p>
+<blockquote>
+<p>横坐标是灰度级，纵坐标是灰度级出现的频率。</p>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/f049c44b87ae4505b0ae3e94ab393a37.png"
+alt="直方图" />
+<figcaption aria-hidden="true">直方图</figcaption>
+</figure>
+<p>直方图<strong>性质</strong>：</p>
+<blockquote>
+<ol type="1">
+<li>只含图像各灰度值像素出现的概率，而无位置信息。</li>
+<li>图像与直方图之间是多对一的映射关系。</li>
+<li>图像各子区的直方图之和就等于该图像全图的直方图。</li>
+</ol>
+</blockquote>
+<p>直方图<strong>用途</strong>：</p>
+<blockquote>
+<ol type="1">
+<li>数字化参数：一般一幅数字图像应该利用全部或几乎全部可能的灰度级；</li>
+<li>边界阈值选择：使用<strong>轮廓线确定简单物体的边界</strong>的方法，称为<strong>阈值化</strong>；</li>
+<li>对物体与背景有较强对比的景物的分割特别有用（双峰直方图）；</li>
+</ol>
+</blockquote>
+</blockquote>
+<p>直方图均衡化：一种借助于直方图变换实现灰度映射从而达到图像增强的目的。</p>
+<blockquote>
+<p><strong>基本思想</strong>：</p>
+<blockquote>
+<p>把原始图的直方图<strong>变换为均匀分布的形式</strong>,这样就<strong>增加了像素灰度值的动态范围</strong>,从而可以达到增强图像整体对比度的效果。</p>
+<p>是以<strong>累积分布函数</strong>变换法为基础的直方图修正法；</p>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/e20461f806c8433787c980d4d84f43e8.png"
+alt="均衡化变换函数" />
+<figcaption aria-hidden="true">均衡化变换函数</figcaption>
+</figure>
+</blockquote>
+<p>基本步骤：</p>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/375ac2b6b9b04395befb878ac45cec58.png"
+alt="直方图均衡化步骤" />
+<figcaption aria-hidden="true">直方图均衡化步骤</figcaption>
+</figure>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/2ca636289ccc44798e0534a105dbe0a4.png"
+alt="均衡化" />
+<figcaption aria-hidden="true">均衡化</figcaption>
+</figure>
+</blockquote>
+</blockquote>
 <h2 id="噪声滤波">噪声滤波</h2>
-<h2 id="zw编码哈夫曼算术编码">ZW编码，哈夫曼，算术编码</h2>
+<p><code>常见噪声模型</code>：高斯噪声，瑞利噪声，伽马噪声，指数噪声，均匀噪声，脉冲（椒盐）噪声……</p>
+<ul>
+<li>噪声本身的灰度可看作随机变量，其分布可用<strong>概率密度函数</strong>（PDF，概率论？）来刻画。</li>
+</ul>
+<p>高斯噪声：</p>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/58a29dfc15b54dae890865aba3de381e.png"
+alt="高斯噪声" />
+<figcaption aria-hidden="true">高斯噪声</figcaption>
+</figure>
+</blockquote>
+<p>均匀噪声：</p>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/0441e0f6f12a491e9e738cc78723177b.png"
+alt="均匀噪声" />
+<figcaption aria-hidden="true">均匀噪声</figcaption>
+</figure>
+</blockquote>
+<p>脉冲（椒盐）噪声：</p>
+<blockquote>
+<ul>
+<li>椒：黑色（0）；盐：白色（255）；</li>
+</ul>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/c3088044de944dc69afb1f6ed16618ef.png"
+alt="椒盐噪声" />
+<figcaption aria-hidden="true">椒盐噪声</figcaption>
+</figure>
+</blockquote>
+<p><code>常见滤波器</code>：1.均值滤波器（算术均值，几何均值，谐波均值，逆谐波均值…）2.顺序统计滤波器（中值，最大值，最小值，中点…）</p>
+<p>均值滤波器：</p>
+<blockquote>
+<p>算术均值滤波器：简单的<strong>平滑</strong>滤波器，可以<strong>消除噪声，使图像变得模糊</strong>。</p>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/78c1acf8b7654a5fbae2bfbb24f03890.png"
+alt="算术均值" />
+<figcaption aria-hidden="true">算术均值</figcaption>
+</figure>
+</blockquote>
+<p>几何均值滤波器：相比算术均值滤波器，会<strong>保留更多细节</strong>。</p>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/5e6d153ee7fd4f118b58930c72fa2eaf.png"
+alt="几何算术" />
+<figcaption aria-hidden="true">几何算术</figcaption>
+</figure>
+</blockquote>
+<p>谐波均值滤波器：<strong>“盐”噪声效果较好</strong>，不适用”椒“噪声；<strong>对高斯噪声有较好</strong>效果。</p>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/fce2bb981ced435cb6b1016bba554688.png"
+alt="谐波滤波器" />
+<figcaption aria-hidden="true">谐波滤波器</figcaption>
+</figure>
+</blockquote>
+<p>逆谐波均值滤波器：</p>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/7cc41ea9ad174b4189ce00fe6ea55f16.png"
+alt="逆谐波滤波器" />
+<figcaption aria-hidden="true">逆谐波滤波器</figcaption>
+</figure>
+</blockquote>
+</blockquote>
+<p>排序统计滤波器：</p>
+<blockquote>
+<p>中值滤波器：像素相邻像素的灰度<strong>中值</strong>来代替该像素的值。</p>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/8fe77789a1164264be20a6960dc54b06.png"
+alt="中值滤波器" />
+<figcaption aria-hidden="true">中值滤波器</figcaption>
+</figure>
+<ul>
+<li>对<strong>椒盐噪声效果非常好</strong>；因为没取均值，故没有“平滑效果”。</li>
+</ul>
+</blockquote>
+<p>最大值滤波器：发现<strong>图像中的最亮点</strong>非常有用；<strong>对于椒噪声具有良好效果</strong>。</p>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/86470a52043e494b86c3e6f884261184.png"
+alt="最大值滤波器" />
+<figcaption aria-hidden="true">最大值滤波器</figcaption>
+</figure>
+</blockquote>
+<p>最小值滤波器：发现<strong>图像中的最暗点</strong>非常有用，<strong>对于盐噪声具有良好效果</strong>。</p>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/a2ab63c1e5db44a7989810f9d138abce.png"
+alt="最小值滤波器" />
+<figcaption aria-hidden="true">最小值滤波器</figcaption>
+</figure>
+</blockquote>
+<p>中点滤波器：最大值和最小值之间的<strong>平均值</strong>。</p>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/ff5a6ce872dd4b128e0c7b8c40dcdd5e.png"
+alt="中点滤波器" />
+<figcaption aria-hidden="true">中点滤波器</figcaption>
+</figure>
+<ul>
+<li>结合了<strong>顺序统计</strong>和<strong>求均匀</strong>，
+对于<strong>高斯和均匀随机分布噪声</strong>有最好的效果。</li>
+</ul>
+</blockquote>
+</blockquote>
+<h2 id="lzw编码哈夫曼算术编码">LZW编码，哈夫曼，算术编码</h2>
+<blockquote>
+<p>图像包含大量信息，表达图像所需数据量较大，传输与储存较难，故采取特殊表达方式以减少表示图像的数据量即：图像压缩。</p>
+</blockquote>
+<p>LZW编码：</p>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/046fedd9e3334fe292acb5d06a643602.png"
+alt="LZW编码步骤" />
+<figcaption aria-hidden="true">LZW编码步骤</figcaption>
+</figure>
+<p>例题：</p>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/0db68736a4ea46a98fae728d7395073c.png"
+alt="LZW例题2" />
+<figcaption aria-hidden="true">LZW例题2</figcaption>
+</figure>
+</blockquote>
+</blockquote>
+<p>哈夫曼编码：</p>
+<blockquote>
+<p>例题：</p>
+<ul>
+<li>左小右大；左0右1.</li>
+</ul>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/8b979646629842d9946b2c62044ada81.png"
+alt="哈夫曼编码" />
+<figcaption aria-hidden="true">哈夫曼编码</figcaption>
+</figure>
+</blockquote>
+</blockquote>
+<p>算术编码：</p>
+<blockquote>
+<p>例题：</p>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/d24013bd307b4bbdbb45fde883704f43.png"
+alt="算术编码" />
+<figcaption aria-hidden="true">算术编码</figcaption>
+</figure>
+</blockquote>
+</blockquote>
 <h2
-id="微分边缘检测分水岭算法图像分割腐蚀和膨胀">微分边缘检测，分水岭算法，图像分割腐蚀和膨胀</h2>
+id="sobelrobertsprewitt拉普拉斯等算子">Sobel，Roberts，Prewitt，拉普拉斯等算子</h2>
+<blockquote>
+<p>用于图像分割时边缘检测的模板。</p>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/d660c8399e274246b4d9060612e06eb2.png"
+alt="算子" />
+<figcaption aria-hidden="true">算子</figcaption>
+</figure>
+</blockquote>
+<p>一阶算子：</p>
+<blockquote>
+<p><strong>基本思想</strong>：图像一阶导数的峰值或者谷值确定边缘，可用一阶微分算子和图像卷积实现。</p>
+<p><strong>特点</strong>：对于亮的边，边的变化起点是正的，结束是负的。对于暗边，结论相反。常数部分为零。</p>
+<p><strong>用途：</strong>用于检测图像中边的存在。</p>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/90ea207035be40c9b16f7140ae3ee918.png"
+alt="一阶微分" />
+<figcaption aria-hidden="true">一阶微分</figcaption>
+</figure>
+<p><code>Sobel算子</code>：</p>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/b2dcd491209c424b85d7c9b65fad7d3e.png"
+alt="Sobel算子" />
+<figcaption aria-hidden="true">Sobel算子</figcaption>
+</figure>
+<ul>
+<li>直接计算<span class="math inline">\(G_x\)</span>，<span
+class="math inline">\(G_y\)</span>可以检测到边的存在，以及从暗到亮，从亮到暗的变化；</li>
+<li>仅计算<span
+class="math inline">\(|G_x|\)</span>，产生最强的相应是平行于<span
+class="math inline">\(X\)</span>轴的边；称之为水平梯度算子<span
+class="math inline">\(G_x\)</span>；</li>
+<li>仅计算<span
+class="math inline">\(|G_y|\)</span>，产生最强的相应是平行于<span
+class="math inline">\(Y\)</span>轴的边；称之为垂直梯度算子<span
+class="math inline">\(G_y\)</span>；</li>
+<li>由于微分具有增强噪音的特性，<strong>平滑效果</strong>是<span
+class="math inline">\(Sobel\)</span>算子的特性。</li>
+</ul>
+</blockquote>
+<p><code>Prewitt，Roberts算子</code>：</p>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/3da50da1910b44c796963ca41b802fae.png"
+alt="其他？" />
+<figcaption aria-hidden="true">其他？</figcaption>
+</figure>
+</blockquote>
+</blockquote>
+<p>二阶算子：</p>
+<blockquote>
+<p><strong>基本思想</strong>：检测图像二阶导数的<strong>零点</strong>确定边缘，可用<strong>二阶微分算子</strong>和图像卷积实现。</p>
+<p><strong>特点</strong>：二阶微分在亮的一边是负的，在暗的一边是正的。常数部分为零。</p>
+<p><strong>用途：</strong></p>
+<blockquote>
+<ol type="1">
+<li>二次导数的符号，用于确定边上的像素是在亮的一边还是暗的一边；</li>
+<li><strong>0跨越</strong>，确定边的准确位置。</li>
+</ol>
+</blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/0e744e585c10463cb061b817390ae875.png"
+alt="二阶微分" />
+<figcaption aria-hidden="true">二阶微分</figcaption>
+</figure>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/46b9cb6831474d40be51585e21495f65.png"
+alt="实例" />
+<figcaption aria-hidden="true">实例</figcaption>
+</figure>
+<p><code>拉普拉斯算子：</code></p>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/e172058d07834a82b5af18312a2506c8.png"
+alt="拉普拉斯1" />
+<figcaption aria-hidden="true">拉普拉斯1</figcaption>
+</figure>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/5483d29d5a1e47169595e27dfb4af61a.png"
+alt="拉普拉斯2" />
+<figcaption aria-hidden="true">拉普拉斯2</figcaption>
+</figure>
+<p>特点：</p>
+<blockquote>
+<ol type="1">
+<li>是二阶导数，对噪声非常敏感；</li>
+<li>拉普拉斯算子的幅值产生双边缘（最大负值和最大正值）；</li>
+<li>不能检测边缘的方向（无方向模板）。</li>
+</ol>
+</blockquote>
+<p>在分割中的作用：</p>
+<blockquote>
+<ol type="1">
+<li>利用零交叉性质进行边缘预定位；</li>
+<li>确定一个像素在边缘暗的一边还是亮的一边。</li>
+</ol>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><code>各算子的特性</code>：</p>
+<blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/f484135195464cf4882b76654102c36c.png"
+alt="各算子的特性" />
+<figcaption aria-hidden="true">各算子的特性</figcaption>
+</figure>
+</blockquote>
+<h2 id="霍夫hough变换">霍夫（hough）变换</h2>
+<blockquote>
+<p>由于<strong>噪声</strong>的原因，边界的特征很少能够被完整地描述，在<strong>亮度不一致的地方会中断</strong>，因此典型的<strong>边界检测算法</strong>（分水岭算法）后面总要跟随者<strong>连接过程</strong>（Hough变换）和其他边界检测过程，用来规整边界像素，成为有意义的边。</p>
+<p>参考一下两个视频：</p>
+<p><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Pe4y1o7bd/?spm_id_from=333.337.search-card.all.click&amp;vd_source=e69083d39594254a5d03937264d71fad">1.数字图像处理
+霍夫变换 Hough变换-author:光跃梨</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1YJ411Y7c6/?spm_id_from=333.337.search-card.all.click&amp;vd_source=e69083d39594254a5d03937264d71fad">2.《Hough变换工作原理（动态图很生动）》-author：yutao_version</a></p>
+</blockquote>
+<p>​ Hough变换：</p>
+<blockquote>
+<p><img
+src="https://img-blog.csdnimg.cn/cfc0306c271348d48cc71f8d9adc2100.png"
+alt="霍夫1" /><img
+src="https://img-blog.csdnimg.cn/d1becbe7fbf049c0b3eb26ea94d32c46.png"
+alt="霍夫2" /><img
+src="https://img-blog.csdnimg.cn/0b16efb059cf4966a67c95e8c82c86f2.png"
+alt="霍夫3" /><img
+src="https://img-blog.csdnimg.cn/59c2cf42b622444dbab60d5b9054e4e5.png"
+alt="霍夫4" /><img
+src="https://img-blog.csdnimg.cn/478cf568d94849d0a2bf261b57463680.png"
+alt="霍夫5" /></p>
+<ul>
+<li>霍夫变换检测边缘只对<strong>边缘图片</strong>（经过<span
+class="math inline">\(Canny\)</span>或者<span
+class="math inline">\(Sobel\)</span>算子提取特征后的图片）有效，对一般的图片无效。</li>
+</ul>
+</blockquote>
+<h2 id="图像分割腐蚀和膨胀">图像分割腐蚀和膨胀</h2>
+<blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1NF411w7fM/?spm_id_from=333.337.search-card.all.click&amp;vd_source=e69083d39594254a5d03937264d71fad">《数字图像处理
+腐蚀与膨胀 形态学算法》-author：光跃梨</a></p>
+</blockquote>
+<h2 id="微分边缘检测分水岭算法">微分边缘检测，分水岭算法</h2>
 <p>微分边缘检测：</p>
 <blockquote>
 <p>基于区域之间灰度不连续性的一类分割方法。</p>
@@ -335,14 +711,39 @@ id="微分边缘检测分水岭算法图像分割腐蚀和膨胀">微分边缘�
 <p>分水岭算法：</p>
 <blockquote>
 <p>基于区域内部灰度相似性的一类分割方法。</p>
+<blockquote>
+<p>原理：</p>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/58002696b74b472e86828aa9914bf6e8.png"
+alt="分水岭1" />
+<figcaption aria-hidden="true">分水岭1</figcaption>
+</figure>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/27ea014db92746bc8f07fc52f61df8ad.png"
+alt="分水岭2" />
+<figcaption aria-hidden="true">分水岭2</figcaption>
+</figure>
+<p><img
+src="https://img-blog.csdnimg.cn/91e2802796924cdca88511f493998616.png"
+alt="分水岭3" /><img
+src="https://img-blog.csdnimg.cn/1e6bc988dd6c4d6a8d37880d24c3dcbd.png"
+alt="分水岭4" /><img
+src="https://img-blog.csdnimg.cn/e5d4523ae82245c995d60e06b56c05e4.png"
+alt="分水岭5" /><img
+src="https://img-blog.csdnimg.cn/951522c6a3374ceca310a591c808ea13.png"
+alt="分水岭6" /><img
+src="https://img-blog.csdnimg.cn/902ea54833c448798a9c360292084da4.png"
+alt="分水岭7" /><img
+src="https://img-blog.csdnimg.cn/73f6e0e4c68c4f428e54d8a4069ce939.png"
+alt="分水岭8" /></p>
 </blockquote>
-<ol type="1">
-<li><p>1-5章最重要，6简答+2计算+1代码实验</p></li>
-<li><p>简答，拉差距，g（要理解课本，不能百度）</p></li>
-<li><p>四次实验报告</p></li>
-<li><p>第五章ppt占30%</p></li>
-</ol>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Umbrella</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/12/26/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Machine%20Vision/">http://example.com/2022/12/26/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Machine%20Vision/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Umbrella's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/">期末考试</a></div><div class="post_share"><div class="social-share" data-image="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/12/27/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Problems%20Of%20kaoyan/"><img class="prev-cover" src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Advice Of Postgraduate Examinations</div></div></a></div><div class="next-post pull-right"><a href="/2022/12/05/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/OS/"><img class="next-cover" src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">操作系统-期末考试</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/11/25/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Principle%20Of%20Microcomputer/" title="微机原理-期末考试"><img class="cover" src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-25</div><div class="title">微机原理-期末考试</div></div></a></div><div><a href="/2022/12/05/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/OS/" title="操作系统-期末考试"><img class="cover" src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-05</div><div class="title">操作系统-期末考试</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://img-blog.csdnimg.cn/4500002a681d49c586c22a88e4ec5868.bmp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Umbrella</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/FeiUmbrella"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/FeiUmbrella" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://blog.csdn.net/qq_51968155?spm=1000.2115.3001.5343" target="_blank" title="CSDN"><i class="fa fa-book-open"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=2199492464&amp;website=www.oicqzone.com" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:2199492464@qq.com" target="_blank" title="Email"><i class="fas fa-envelope-open-text"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89---%E5%A4%A7%E4%B8%89%E4%B8%8A%E5%A4%87%E8%80%83"><span class="toc-number">1.</span> <span class="toc-text">机器视觉 - 大三上备考</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%B0%B4%E5%B2%AD%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E4%BB%BB%E5%8A%A1%E5%B9%B6%E7%90%86%E8%A7%A3%E4%B8%8E%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%85%B3%E7%B3%BB%E6%95%B0%E5%AD%A6%E5%BD%A2%E6%80%81%E5%AD%A6%E5%9B%BE%E5%BD%A2%E5%A4%84%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">“分水岭”算法实现图像分割任务并理解与边缘检测任务的关系（数学形态学图形处理）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E8%B4%9D%E5%B0%94%E7%BD%97%E4%BC%AF%E7%89%B9%E6%99%AE%E7%91%9E%E7%BB%B4%E7%89%B9%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E7%AD%89%E7%AE%97%E5%AD%90%E6%8E%A8%E5%AF%BC%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">索贝尔，罗伯特，普瑞维特，拉普拉斯等算子推导过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%8D%E5%A4%ABhough%E5%8F%98%E6%8D%A2"><span class="toc-number">1.3.</span> <span class="toc-text">霍夫（hough）变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E6%95%B0-%E8%AF%BE%E6%9C%AC%E9%99%84%E5%B8%A6ppt%E8%A7%86%E9%A2%9137mins%E5%A4%84"><span class="toc-number">1.4.</span> <span class="toc-text">欧拉数-（课本附带ppt，视频37mins处）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%87%E6%A0%B7%E5%92%8C%E9%87%8F%E5%8C%96"><span class="toc-number">1.5.</span> <span class="toc-text">采样和量化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%90%E6%A0%87%E5%8F%98%E6%8D%A2"><span class="toc-number">1.6.</span> <span class="toc-text">坐标变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%81%B0%E5%BA%A6%E6%98%A0%E5%B0%84"><span class="toc-number">1.7.</span> <span class="toc-text">灰度映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%87%E8%A1%A1%E5%8C%96"><span class="toc-number">1.8.</span> <span class="toc-text">均衡化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%99%AA%E5%A3%B0%E6%BB%A4%E6%B3%A2"><span class="toc-number">1.9.</span> <span class="toc-text">噪声滤波</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zw%E7%BC%96%E7%A0%81%E5%93%88%E5%A4%AB%E6%9B%BC%E7%AE%97%E6%9C%AF%E7%BC%96%E7%A0%81"><span class="toc-number">1.10.</span> <span class="toc-text">ZW编码，哈夫曼，算术编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E5%88%86%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B%E5%88%86%E6%B0%B4%E5%B2%AD%E7%AE%97%E6%B3%95%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E8%85%90%E8%9A%80%E5%92%8C%E8%86%A8%E8%83%80"><span class="toc-number">1.11.</span> <span class="toc-text">微分边缘检测，分水岭算法，图像分割腐蚀和膨胀</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/12/27/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Problems%20Of%20kaoyan/" title="Advice Of Postgraduate Examinations"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Advice Of Postgraduate Examinations"/></a><div class="content"><a class="title" href="/2022/12/27/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Problems%20Of%20kaoyan/" title="Advice Of Postgraduate Examinations">Advice Of Postgraduate Examinations</a><time datetime="2022-12-27T03:43:00.000Z" title="发表于 2022-12-27 11:43:00">2022-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/26/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Machine%20Vision/" title="机器视觉-期末考试"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="机器视觉-期末考试"/></a><div class="content"><a class="title" href="/2022/12/26/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Machine%20Vision/" title="机器视觉-期末考试">机器视觉-期末考试</a><time datetime="2022-12-26T13:06:00.000Z" title="发表于 2022-12-26 21:06:00">2022-12-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/05/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/OS/" title="操作系统-期末考试"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统-期末考试"/></a><div class="content"><a class="title" href="/2022/12/05/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/OS/" title="操作系统-期末考试">操作系统-期末考试</a><time datetime="2022-12-05T07:40:00.000Z" title="发表于 2022-12-05 15:40:00">2022-12-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/25/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Principle%20Of%20Microcomputer/" title="微机原理-期末考试"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微机原理-期末考试"/></a><div class="content"><a class="title" href="/2022/11/25/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Principle%20Of%20Microcomputer/" title="微机原理-期末考试">微机原理-期末考试</a><time datetime="2022-11-25T10:06:00.000Z" title="发表于 2022-11-25 18:06:00">2022-11-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/21/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Math%20Knowledge%20Points/" title="Math Knowledge Points"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Math Knowledge Points"/></a><div class="content"><a class="title" href="/2022/11/21/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Math%20Knowledge%20Points/" title="Math Knowledge Points">Math Knowledge Points</a><time datetime="2022-11-20T16:00:00.000Z" title="发表于 2022-11-21 00:00:00">2022-11-21</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2022 By Umbrella</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+</blockquote>
+<p>相关代码：<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39602637/article/details/115844843">实验课给的代码</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br></pre></td><td class="code"><pre><span class="line">close <span class="built_in">all</span>;</span><br><span class="line"></span><br><span class="line">%%</span><br><span class="line"></span><br><span class="line">%Step <span class="number">1</span>: 彩***像-&gt;灰度图像</span><br><span class="line"></span><br><span class="line">rgb = imread(<span class="string">&#x27;pears.png&#x27;</span>);</span><br><span class="line"></span><br><span class="line">I = rgb2gray(rgb);</span><br><span class="line"></span><br><span class="line">figure;subplot(<span class="number">121</span>)</span><br><span class="line"></span><br><span class="line">imshow(I)</span><br><span class="line"></span><br><span class="line">%Step <span class="number">2</span>: 利用梯度实现图像的分割</span><br><span class="line"></span><br><span class="line">%使用sobel算子进行边缘检测，</span><br><span class="line"></span><br><span class="line">text(<span class="number">732</span>,<span class="number">501</span>,<span class="string">&#x27;Image courtesy of Corel&#x27;</span>,<span class="string">&#x27;FontSize&#x27;</span>,<span class="number">7</span>,<span class="string">&#x27;HorizontalAlignment&#x27;</span>,<span class="string">&#x27;right&#x27;</span>)</span><br><span class="line"></span><br><span class="line">hy = fspecial(<span class="string">&#x27;sobel&#x27;</span>);</span><br><span class="line"></span><br><span class="line">hx = hy<span class="string">&#x27;;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Iy = imfilter(double(I), hy, &#x27;</span>replicate<span class="string">&#x27;);%实现线性空间滤波函数，一种采用滤波处理的影像增强方法。其理论基础是空间卷积和空间相关。目的是改善影像质量，包括去除高频噪声与干扰，及影像边缘增强、线性增强以及去模糊等。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Ix = imfilter(double(I), hx, &#x27;</span>replicate<span class="string">&#x27;);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">gradmag = sqrt(Ix.^2 + Iy.^2);%求模</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">subplot(122), imshow(gradmag,[]), title(&#x27;</span>gradmag<span class="string">&#x27;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%直接用分水岭</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%L=watershed(gradmag);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%Lrgb=label2rgb(L);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%figure;imshow(Lrgb),</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%title(&#x27;</span>Lrg<span class="string">b&#x27;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%No. 如果没有额外的预处理，如下面的标记计算，使用分水岭变换直接结果往往是“过度分割。”</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">% 以下是标记前景和背景物体</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%各种程序可以在这里应用到找到前景标记，它必须连接内的每个前景对象的像素的斑点。在这个例子中，你将使用名为“开放由重建”及以上的图像“闭合由重建”为“干净”的形态学技术。这些操作将创建一个可以使用imregionalmax位于每个对象内部平最大值。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%Step 3：形态学开操作</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">se = strel(&#x27;</span>disk<span class="string">&#x27;, 20);%圆形结构元素</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Io = imopen(I, se);%形态学开操作</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">figure;subplot(121)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">imshow(Io), title(&#x27;</span>Io<span class="string">&#x27;)%显示执行后的图</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%Step 4：腐蚀与重建</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Ie = imerode(I, se);%对图像进行腐蚀</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Iobr = imreconstruct(Ie, I);%对图像进行重建</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">subplot(122);imshow(Iobr), %显示重建后的图像</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">title(&#x27;</span>Io<span class="string">br&#x27;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%Step 5：形态学关操作</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Ioc = imclose(Io, se);%形态学关操作</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">figure;subplot(121)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">imshow(Ioc),</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">title(&#x27;</span>Ioc<span class="string">&#x27;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%Step 6：图像膨胀与求反</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Iobrd = imdilate(Iobr, se);%对图像进行膨胀</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Iobrcbr = imreconstruct(imcomplement(Iobrd), imcomplement(Iobr));</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Iobrcbr = imcomplement(Iobrcbr);%对图像求反</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">subplot(122);imshow(Iobrcbr),</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">title(&#x27;</span>Iobrc<span class="string">br&#x27;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%%Step 7：获得局部最大值</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">fgm = imregionalmax(Iobrcbr);%获得局部最大值</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">figure;imshow(fgm),</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">title(&#x27;</span>fgm<span class="string">&#x27;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%Step 8：在原图上显示极大值区域</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">I2 = I;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">I2(fgm) = 255;%局部极大值处像素值设为255</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">figure;imshow(I2),</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">title(&#x27;</span>fgm superimposed on original p_w_picpath<span class="string">&#x27;)%在原图上显示极大值区域</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">se2 = strel(ones(5,5));%构建元素</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">fgm2 = imclose(fgm, se2);%关操作</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">fgm3 = imerode(fgm2, se2);%腐蚀</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">fgm4 = bwareaopen(fgm3, 20);%开操作</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%Step 9：显示修改后的极大区域</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">I3 = I;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">I3(fgm4) = 255;%前景设置为255</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">figure;subplot(121),</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">imshow(I3)%显示修改后的极大区域</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">title(&#x27;</span>fgm4 superimposed on original p_w_picpath<span class="string">&#x27;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%现在标记背景， 在清理后的图像，Iobrcbr，暗像素属于背景，所以你可以从一个阈值操作。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%Step 10：转化为二值图像</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">bw = im2bw(Iobrcbr, graythresh(Iobrcbr));</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">subplot(122);imshow(bw),</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">title(&#x27;</span>bw<span class="string">&#x27;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%背景像素是黑色的，但理想地，我们不希望的背景标记是太靠近我们目标对象的边缘。我们通过&#x27;</span>骨骼化<span class="string">&#x27;进行细分，对二值图像的距离进行分水岭变换，然后寻找分水岭的界线。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">%Step 11：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">D = bwdist(bw);%计算距离</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">DL = watershed(D);%分水岭变换</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">bgm = DL == 0;%求取分割边界</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">figure; imshow(bgm), %显示分割后的边界</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">title(&#x27;</span>Watershed ridge lines (bgm)<span class="string">&#x27;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">gradmag2 = imimposemin(gradmag, bgm | fgm4);%置最小值</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">L = watershed(gradmag2);%分水岭变换</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">I4 = I;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">I4(imdilate(L == 0, ones(3, 3)) | bgm | fgm4) = 255;%前景及边界处置255</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">figure; subplot(121)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">imshow(I4)%突出前景及边界</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">title(&#x27;</span>Markers <span class="keyword">and</span> <span class="built_in">object</span> boundaries<span class="string">&#x27;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Lrgb = label2rgb(L, &#x27;</span>jet<span class="string">&#x27;, &#x27;</span>w<span class="string">&#x27;, &#x27;</span>shuffle<span class="string">&#x27;);%转化为伪彩***像</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">subplot(122); imshow(Lrgb)%显示伪彩***像</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">title(&#x27;</span>Colored watershed label matrix<span class="string">&#x27;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">figure; imshow(I),</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">hold on</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">hp_w_picpath = imshow(Lrgb);%在原图上显示伪彩***像</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">set(hp_w_picpath, &#x27;</span>AlphaData<span class="string">&#x27;, 0.3);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">title(&#x27;</span>Lrgb superimposed transparently on original p_w_picpath<span class="string">&#x27;)</span></span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Umbrella</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/12/26/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Machine%20Vision/">http://example.com/2022/12/26/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Machine%20Vision/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Umbrella's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/">期末考试</a></div><div class="post_share"><div class="social-share" data-image="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/12/27/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Problems%20Of%20kaoyan/"><img class="prev-cover" src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Advice Of Postgraduate Examinations</div></div></a></div><div class="next-post pull-right"><a href="/2022/12/05/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/OS/"><img class="next-cover" src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">操作系统-期末考试</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/11/25/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Principle%20Of%20Microcomputer/" title="微机原理-期末考试"><img class="cover" src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-25</div><div class="title">微机原理-期末考试</div></div></a></div><div><a href="/2022/12/05/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/OS/" title="操作系统-期末考试"><img class="cover" src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-05</div><div class="title">操作系统-期末考试</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://img-blog.csdnimg.cn/4500002a681d49c586c22a88e4ec5868.bmp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Umbrella</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/FeiUmbrella"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/FeiUmbrella" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://blog.csdn.net/qq_51968155?spm=1000.2115.3001.5343" target="_blank" title="CSDN"><i class="fa fa-book-open"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=2199492464&amp;website=www.oicqzone.com" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:2199492464@qq.com" target="_blank" title="Email"><i class="fas fa-envelope-open-text"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89---%E5%A4%A7%E4%B8%89%E4%B8%8A%E5%A4%87%E8%80%83"><span class="toc-number">1.</span> <span class="toc-text">机器视觉 - 大三上备考</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AC%A7%E6%8B%89%E6%95%B0-%E8%AF%BE%E6%9C%AC%E9%99%84%E5%B8%A6ppt%E8%A7%86%E9%A2%9137mins%E5%A4%84"><span class="toc-number">1.1.</span> <span class="toc-text">欧拉数-（课本附带ppt，视频37mins处）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%87%E6%A0%B7%E5%92%8C%E9%87%8F%E5%8C%96"><span class="toc-number">1.2.</span> <span class="toc-text">采样和量化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%90%E6%A0%87%E5%8F%98%E6%8D%A2"><span class="toc-number">1.3.</span> <span class="toc-text">坐标变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%81%B0%E5%BA%A6%E6%98%A0%E5%B0%84"><span class="toc-number">1.4.</span> <span class="toc-text">灰度映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96"><span class="toc-number">1.5.</span> <span class="toc-text">直方图均衡化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%99%AA%E5%A3%B0%E6%BB%A4%E6%B3%A2"><span class="toc-number">1.6.</span> <span class="toc-text">噪声滤波</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lzw%E7%BC%96%E7%A0%81%E5%93%88%E5%A4%AB%E6%9B%BC%E7%AE%97%E6%9C%AF%E7%BC%96%E7%A0%81"><span class="toc-number">1.7.</span> <span class="toc-text">LZW编码，哈夫曼，算术编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sobelrobertsprewitt%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E7%AD%89%E7%AE%97%E5%AD%90"><span class="toc-number">1.8.</span> <span class="toc-text">Sobel，Roberts，Prewitt，拉普拉斯等算子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%8D%E5%A4%ABhough%E5%8F%98%E6%8D%A2"><span class="toc-number">1.9.</span> <span class="toc-text">霍夫（hough）变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E8%85%90%E8%9A%80%E5%92%8C%E8%86%A8%E8%83%80"><span class="toc-number">1.10.</span> <span class="toc-text">图像分割腐蚀和膨胀</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E5%88%86%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B%E5%88%86%E6%B0%B4%E5%B2%AD%E7%AE%97%E6%B3%95"><span class="toc-number">1.11.</span> <span class="toc-text">微分边缘检测，分水岭算法</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/12/27/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Problems%20Of%20kaoyan/" title="Advice Of Postgraduate Examinations"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Advice Of Postgraduate Examinations"/></a><div class="content"><a class="title" href="/2022/12/27/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Problems%20Of%20kaoyan/" title="Advice Of Postgraduate Examinations">Advice Of Postgraduate Examinations</a><time datetime="2022-12-27T03:43:00.000Z" title="发表于 2022-12-27 11:43:00">2022-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/26/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Machine%20Vision/" title="机器视觉-期末考试"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="机器视觉-期末考试"/></a><div class="content"><a class="title" href="/2022/12/26/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Machine%20Vision/" title="机器视觉-期末考试">机器视觉-期末考试</a><time datetime="2022-12-26T13:06:00.000Z" title="发表于 2022-12-26 21:06:00">2022-12-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/05/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/OS/" title="操作系统-期末考试"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统-期末考试"/></a><div class="content"><a class="title" href="/2022/12/05/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/OS/" title="操作系统-期末考试">操作系统-期末考试</a><time datetime="2022-12-05T07:40:00.000Z" title="发表于 2022-12-05 15:40:00">2022-12-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/25/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Principle%20Of%20Microcomputer/" title="微机原理-期末考试"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微机原理-期末考试"/></a><div class="content"><a class="title" href="/2022/11/25/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Principle%20Of%20Microcomputer/" title="微机原理-期末考试">微机原理-期末考试</a><time datetime="2022-11-25T10:06:00.000Z" title="发表于 2022-11-25 18:06:00">2022-11-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/21/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Math%20Knowledge%20Points/" title="Math Knowledge Points"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Math Knowledge Points"/></a><div class="content"><a class="title" href="/2022/11/21/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Math%20Knowledge%20Points/" title="Math Knowledge Points">Math Knowledge Points</a><time datetime="2022-11-20T16:00:00.000Z" title="发表于 2022-11-21 00:00:00">2022-11-21</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2022 By Umbrella</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [ ['$','$'], ["\\(","\\)"]],
