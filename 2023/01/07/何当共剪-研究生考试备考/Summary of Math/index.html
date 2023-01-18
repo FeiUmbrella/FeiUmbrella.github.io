@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Summary of Math | Umbrella's Blog</title><meta name="author" content="Umbrella"><meta name="copyright" content="Umbrella"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Summary of Math  此文章目的在于：整理记忆性知识较多的章节，可方便随时复习其重点，以此加深记忆。  Advanced Mathematics 第七章-无穷级数 常数项级数  形如数列：\(\sum\limits_{n&#x3D;1}^{\infty}u_n&#x3D;u_1+u_2+...+u_n+...\)  第八章-微分方程   微分方程的解：函数。 通解不一定是全部的">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Summary of Math | Umbrella's Blog</title><meta name="author" content="Umbrella"><meta name="copyright" content="Umbrella"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Summary of Math  此文章目的在于：整理记忆性知识较多的章节，可方便随时复习其重点，以此加深记忆。  Advanced Mathematics 第七章-无穷级数 常数项级数  形如数列：\(\sum\limits_{n&#x3D;1}^{\infty}u_n&#x3D;u_1+u_2+...+u_n+...\)  定理：   \(\sum\limits_{n&#x3D;1}^\infty">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Summary of Math">
 <meta property="og:url" content="http://example.com/2023/01/07/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Summary%20of%20Math/index.html">
 <meta property="og:site_name" content="Umbrella&#39;s Blog">
-<meta property="og:description" content="Summary of Math  此文章目的在于：整理记忆性知识较多的章节，可方便随时复习其重点，以此加深记忆。  Advanced Mathematics 第七章-无穷级数 常数项级数  形如数列：\(\sum\limits_{n&#x3D;1}^{\infty}u_n&#x3D;u_1+u_2+...+u_n+...\)  第八章-微分方程   微分方程的解：函数。 通解不一定是全部的">
+<meta property="og:description" content="Summary of Math  此文章目的在于：整理记忆性知识较多的章节，可方便随时复习其重点，以此加深记忆。  Advanced Mathematics 第七章-无穷级数 常数项级数  形如数列：\(\sum\limits_{n&#x3D;1}^{\infty}u_n&#x3D;u_1+u_2+...+u_n+...\)  定理：   \(\sum\limits_{n&#x3D;1}^\infty">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg">
 <meta property="article:published_time" content="2023-01-07T15:26:00.000Z">
@@ -153,6 +153,379 @@
 <p>形如<strong>数列</strong>：<span
 class="math inline">\(\sum\limits_{n=1}^{\infty}u_n=u_1+u_2+...+u_n+...\)</span></p>
 </blockquote>
+<p><code>定理</code>：</p>
+<blockquote>
+<ul>
+<li><p><span class="math inline">\(\sum\limits_{n=1}^\infty
+u_n\)</span>与<span class="math inline">\(\sum\limits_{n=1}^\infty
+ku_n\)</span>同敛散。<code>k != 0</code></p></li>
+<li><p>收敛<span class="math inline">\(\pm\)</span>发散=发散</p></li>
+<li><p>发散<span
+class="math inline">\(\pm\)</span>发散=<strong>不确定</strong></p></li>
+<li><p>去掉，增加，改变有限项敛散性不变</p></li>
+<li><p>收敛级数加括号仍收敛：1.
+加括号收敛，原级数不一定收敛；2.<code>[逆否命题]：</code>加括号发散，则原级数一定发散；</p></li>
+<li><p>级数<span class="math inline">\(\sum\limits_{n=1}^\infty
+u_n\)</span>收敛的<strong>必要</strong>条件：<span
+class="math inline">\(\lim\limits_{n\to\infty}
+u_n=0\)</span>.<code>即：</code>当<span
+class="math inline">\(\lim\limits_{n\to\infty} u_n \neq
+0\)</span>则级数<strong>发散</strong>；当<span
+class="math inline">\(\lim\limits_{n\to\infty} u_n =
+0\)</span>则级数<strong>不一定</strong>收敛；</p></li>
+</ul>
+</blockquote>
+<p><code>常用级数</code>：</p>
+<blockquote>
+<ol type="1">
+<li><span class="math inline">\(\sum\limits_{n=1}^{\infty}
+\frac{1}{n^p}\)</span>：当<code>p = 1</code>时，为<strong>调和</strong>级数，发散；当<code>p &gt; 1</code>时，收敛；</li>
+<li><span class="math inline">\(\lim\limits_{n\to\infty}
+(1+\frac{1}{n})^n = e\)</span>，[<code>单调递增趋向e</code>]；</li>
+<li><span class="math inline">\(\lim\limits_{n\to\infty}n^{\frac{1}{n}}
+= 1\)</span>；</li>
+<li>交错级数：<span class="math inline">\(\sum\limits_{n=1}^{\infty}
+(-1)^n
+\frac{1}{n^p}\)</span>：<code>a.</code>当p&gt;0，收敛，当p&lt;=0，发散；<code>b.</code>0&lt;p&lt;=1，条件收敛，p&gt;1，绝对收敛；</li>
+</ol>
+</blockquote>
+<hr />
+<h5 id="正项级数判敛准则">正项级数判敛准则</h5>
+<blockquote>
+<p><code>正项级数：</code>各项都是由正数组成；若各项都是负数，将负号提出变为正项级数，故敛散性一致。</p>
+</blockquote>
+<p><code>定理：</code></p>
+<blockquote>
+<ul>
+<li>正项级数<span class="math inline">\(\sum\limits_{n=1}^{\infty}
+a_n\)</span>收敛：<span class="math inline">\(\sum\limits_{n=1}^{\infty}
+a_n^{p}，(p&gt;=1)\)</span>收敛。</li>
+<li>几何级数（等比级数）：<span class="math inline">\(a +
+aq+aq^2+...+aq^n+...，(a\neq
+0)\)</span>：当<code>|q|&lt;1</code>时，级数收敛到<span
+class="math inline">\(\frac{a}{1-q}\)</span>；当<span
+class="math inline">\(|q|&gt;=1\)</span>时，级数发散。</li>
+<li>对数P级数：<span class="math inline">\(\sum\limits_{n=2}^{\infty}
+\frac{1}{n\ln^{p}
+n}\)</span>：当<code>p&gt;1</code>时，收敛；当<code>p&lt;=1</code>时，发散。</li>
+</ul>
+</blockquote>
+<p><code>判别法：</code></p>
+<blockquote>
+<p><strong>比较判别法：</strong>设<span
+class="math inline">\(\lim\limits_{n\to\infty}
+\frac{u_n}{v_n}=l\)</span>.<code>大敛小敛，小散大散。</code></p>
+<blockquote>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 82%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">L</th>
+<th style="text-align: center;">敛散性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(0&lt;l&lt;+\infty\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\sum\limits_{n=1}^{\infty} u_n\)</span>与<span
+class="math inline">\(\sum\limits_{n=1}^{\infty} v_n\)</span>同敛散</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(l=0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\sum\limits_{n=1}^{\infty} v_n\)</span>收敛则<span
+class="math inline">\(\sum\limits_{n=1}^{\infty}
+u_n\)</span>收敛（<strong>大敛小敛</strong>）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(l=+\infty\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\sum\limits_{n=1}^{\infty} v_n\)</span>发散则<span
+class="math inline">\(\sum\limits_{n=1}^{\infty}
+u_n\)</span>发散（<strong>小散大散</strong>）</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><strong>比值判别法</strong>：设<span
+class="math inline">\(\lim\limits_{n\to\infty}
+\frac{u_{n+1}}{u_n}=\rho\)</span><code>自己比自己。</code></p>
+<blockquote>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline">\(\rho\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(\sum\limits_{n=1}^{\infty} u_n\)</span>敛散性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\rho &lt;
+1\)</span></td>
+<td style="text-align: center;">收敛</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\rho &gt;
+1\)</span></td>
+<td style="text-align: center;">发散</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\rho
+=1\)</span></td>
+<td style="text-align: center;">不确定</td>
+</tr>
+</tbody>
+</table>
+<p>适用范围：存在阶乘，多项式乘积使用较爽！</p>
+</blockquote>
+<p><strong>根植判别法</strong>：<span
+class="math inline">\(\lim\limits_{n\to
+\infty}\sqrt[n]{u_n}=\rho\)</span></p>
+<blockquote>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span
+class="math inline">\(\rho\)</span></th>
+<th style="text-align: center;"><span
+class="math inline">\(\sum\limits_{n=1}^{\infty} u_n\)</span>敛散性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\rho &lt;
+1\)</span></td>
+<td style="text-align: center;">收敛</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\rho &gt;
+1\)</span></td>
+<td style="text-align: center;">发散</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\rho
+=1\)</span></td>
+<td style="text-align: center;">不确定</td>
+</tr>
+</tbody>
+</table>
+<p>适用范围：存在<span
+class="math inline">\(n\)</span>次方根使用较爽！</p>
+</blockquote>
+<p><strong>积分判别法</strong>：</p>
+<blockquote>
+<p>若<span class="math inline">\(f(x)\)</span>在区间<span
+class="math inline">\([1,+\infty]\)</span>是<strong>正</strong>的，且<strong>单调递减</strong>，则当且仅当反常积分<span
+class="math inline">\(\int_1^{+\infty}f(x)dx\)</span>收敛 <span
+class="math inline">\(\Rightarrow\)</span> <span
+class="math inline">\(\sum\limits_{n=1}^{\infty} f(n)\)</span>收敛；</p>
+</blockquote>
+</blockquote>
+<h5 id="交错级数">交错级数</h5>
+<blockquote>
+<p>正负号相间，形如：<span
+class="math inline">\(\sum\limits_{n=1}^{\infty}
+(-1)^{n-1}u_n，u_n&gt;0\)</span></p>
+<p>莱布尼兹判别准则（<code>充分</code>条件）：当<span
+class="math inline">\(u_n&gt;=u_{n+1}\)</span><code>&amp;</code><span
+class="math inline">\(\lim\limits_{n\to\infty} u_n =
+0\)</span>时，交错级数收敛。</p>
+<blockquote>
+<p>证明：<span
+class="math inline">\(u_n&gt;=u_{n+1}\)</span>的三种方法：</p>
+<ol type="1">
+<li>利用<span
+class="math inline">\(\frac{u_{n+1}}{u_n}&lt;=1\)</span>；</li>
+<li>利用<span class="math inline">\(u_{n+1}-u_n&lt;=0\)</span>；</li>
+<li>找一个可导函数<span class="math inline">\(f(x)\)</span>，使<span
+class="math inline">\(f(n)=u_n\)</span>，用<span
+class="math inline">\(f\prime(x)&lt;0\)</span>来说明<span
+class="math inline">\(u_n\)</span>单调递减；在考察<span
+class="math inline">\(\lim\limits_{n\to\infty}
+u_n=0\)</span>时，也可用此方法，来考察<span
+class="math inline">\(\lim\limits_{x\to+\infty} f(x)=0\)</span>；</li>
+</ol>
+</blockquote>
+</blockquote>
+<h5 id="绝对条件收敛">绝对/条件收敛</h5>
+<blockquote>
+<p><code>绝对收敛</code>：<span
+class="math inline">\(\sum\limits_{n=1}^{\infty}
+|u_n|\)</span>收敛，此时<span
+class="math inline">\(\sum\limits_{n=1}^{\infty}
+u_n\)</span>一定收敛。</p>
+<p><code>条件收敛</code>：<span
+class="math inline">\(\sum\limits_{n=1}^{\infty} u_n\)</span>收敛，<span
+class="math inline">\(\sum\limits_{n=1}^{\infty}
+|u_n|\)</span>发散。</p>
+<blockquote>
+<p>若<span class="math inline">\(\sum\limits_{n=1}^{\infty}
+u_n\)</span>条件收敛，则：<span
+class="math inline">\(\sum\limits_{n=1}^{\infty} \frac{u_n +
+|u_n|}{2}\)</span>和<span
+class="math inline">\(\sum\limits_{n=1}^{\infty} \frac{u_n -
+|u_n|}{2}\)</span>都发散。<code>[可以理解为：收敛+发散=发散]</code></p>
+</blockquote>
+</blockquote>
+<hr />
+<h4 id="幂级数">幂级数</h4>
+<blockquote>
+<p>形如：<span class="math inline">\(\sum\limits_{n=1}^{\infty} u_n(x) =
+u_1(x)+u_2(x)+...+u_n(x)+...\)</span></p>
+<p><code>收敛半径R：</code>端点到<span
+class="math inline">\(x_0\)</span>的<code>距离</code>。</p>
+<p><code>收敛域</code>：收敛区间为开区间，收敛域应再判断区间的<code>端点</code>是否收敛。</p>
+<ul>
+<li>幂级数只可能在<code>端点</code>处，条件收敛。</li>
+<li>求导和积分之后，收敛半径<code>R</code>不变，但是收敛域可能会变即：应特判<code>端点</code>处的敛散性。</li>
+</ul>
+</blockquote>
+<p><code>求收敛半径R</code>：</p>
+<blockquote>
+<table>
+<colgroup>
+<col style="width: 77%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(\lim\limits_{n\to \infty}
+|\frac{a_{n+1}}{a_n}|=\rho\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\frac{1}{\rho}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(\lim\limits_{n\to \infty} \sqrt[n]{|a_n|} =
+\rho\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\frac{1}{\rho}\)</span></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h5 id="泰勒展开">泰勒展开</h5>
+<blockquote>
+<p>在<span class="math inline">\(x=x_0\)</span>处泰勒展开，形如：<span
+class="math inline">\(f(x_0)+f\prime(x_0)(x-x_0)+\frac{f\prime\prime(x_0)}{2!}(x-x_0)^2+...+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+...\)</span></p>
+<ul>
+<li><p><span class="math inline">\(f(x)\)</span>应能在<span
+class="math inline">\(x=x_0\)</span>处<strong>任意阶</strong>可导！</p></li>
+<li><p>Effect（作用）：可将<span
+class="math inline">\(f(x)\)</span>展开为<code>级数</code>.</p></li>
+<li><p>Why(为何需要泰勒展开)：可以将<span
+class="math inline">\(f(x)\)</span>展开为级数进行研究；<code>或</code>利用泰勒展开求极限.</p></li>
+</ul>
+<p>当<span
+class="math inline">\(x_0=0\)</span>时，<strong>泰勒级数</strong>变为<strong>麦克劳林级数</strong>.</p>
+<p>泰勒级数<strong>收敛</strong>于<span
+class="math inline">\(f(x)\)</span><strong>充要</strong>条件：<span
+class="math inline">\(\lim\limits_{n\to\infty}R_n(x)=0\)</span></p>
+<blockquote>
+<p><span
+class="math inline">\(R_n(x)=\frac{f^{(n+1)}[x_0+\theta(x-x_0)]}{(n+1)!}(x-x_0)^{(n+1)}\)</span></p>
+</blockquote>
+</blockquote>
+<p><code>常用的麦克劳林展开</code>：</p>
+<blockquote>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 57%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">展开式</th>
+<th>收敛域</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">等比级数：<span
+class="math inline">\(\frac{1}{1-x}=1+x+x^2+...+x^n+...=\sum\limits_{n=0}^{\infty}
+x^n\)</span></td>
+<td><span class="math inline">\(x\in(-1,1)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2：1式令<code>x=-x</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\frac{1}{1+x}=1-x+x^2+...+(-x)^n+...=\sum\limits_{n=0}^{\infty}(-x)^n\)</span></td>
+<td><span class="math inline">\(x\in(-1,1)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"><span
+class="math inline">\(e^x=1+x+\frac{x^2}{2!}+...+\frac{x^n}{n!}+...=\sum\limits_{n=0}^{\infty}
+\frac{x^n}{n!}\)</span></td>
+<td><span class="math inline">\(x\in(-\infty,+\infty)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"><span class="math inline">\(\sin x=x -
+\frac{x^3}{3!}+...+\frac{(-1)^n
+x^{(2n+1)}}{(2n+1)!}+...=\sum\limits_{n=0}^{\infty} \frac{(-1)^n
+x^{(2n+1)}}{(2n+1)!}\)</span></td>
+<td><span class="math inline">\(x\in(-\infty,+\infty)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5：4式<code>求导</code></td>
+<td style="text-align: center;"><span class="math inline">\(\cos x=1 -
+\frac{x^2}{2!}+...+\frac{(-1)^n
+x^{(2n)}}{(2n)!}+...=\sum\limits_{n=0}^{\infty} \frac{(-1)^n
+x^{(2n)}}{(2n)!}\)</span></td>
+<td><span class="math inline">\(x\in(-\infty,+\infty)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6：2式<code>积分</code></td>
+<td style="text-align: center;"><span class="math inline">\(\ln (1+x) =
+x -\frac{x^2}{2}+...+\frac{(-1)^{(n-1)}
+x^n}{n}+...=\sum\limits_{n=1}^{\infty} \frac{(-1)^{(n-1)}
+x^n}{n}\)</span></td>
+<td><span class="math inline">\(x\in(-1,1]\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7：负的1式<code>积分</code></td>
+<td style="text-align: center;"><span class="math inline">\(\ln (1-x)
+=-\sum\limits_{n=1}^{\infty} \frac{ x^n}{n}\)</span></td>
+<td><span class="math inline">\(x\in[-1,1)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8：2式令<code>x=x^2</code></td>
+<td style="text-align: center;"><span
+class="math inline">\(\frac{1}{1+x^2}=\sum\limits_{n=0}^{\infty}(-1)^n
+x^{2n}\)</span></td>
+<td><span class="math inline">\(x\in(-1,1)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9：端点处敛散取决于<code>a</code></td>
+<td style="text-align: center;"><span
+class="math inline">\((1+x)^a=1+ax+...+C_a^n x^n+...\)</span></td>
+<td><span class="math inline">\(x\in(-1,1)\)</span></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h4 id="傅里叶级数">傅里叶级数</h4>
+<hr />
 <h3 id="第八章-微分方程">第八章-微分方程</h3>
 <blockquote>
 <ol type="1">
@@ -451,7 +824,7 @@ class="math inline">\(p=y\prime,y\prime\prime=\frac{dp}{dx}=\frac{dp}{dy}*\frac{
 \int\frac{dy}{\Phi(y,C_1)}=\int dx+C_2=x+C_2\)</span></p>
 </blockquote>
 </blockquote>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Umbrella</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/01/07/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Summary%20of%20Math/">http://example.com/2023/01/07/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Summary%20of%20Math/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Umbrella's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/">研究生考试备考</a></div><div class="post_share"><div class="social-share" data-image="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/12/27/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Problems%20Of%20kaoyan/"><img class="next-cover" src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Advice Of Postgraduate Examinations</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/10/22/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/English-worlds/" title="English words"><img class="cover" src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-22</div><div class="title">English words</div></div></a></div><div><a href="/2022/11/21/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Math%20Knowledge%20Points/" title="Math Knowledge Points"><img class="cover" src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-21</div><div class="title">Math Knowledge Points</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://img-blog.csdnimg.cn/4500002a681d49c586c22a88e4ec5868.bmp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Umbrella</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/FeiUmbrella"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/FeiUmbrella" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://blog.csdn.net/qq_51968155?spm=1000.2115.3001.5343" target="_blank" title="CSDN"><i class="fa fa-book-open"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=2199492464&amp;website=www.oicqzone.com" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:2199492464@qq.com" target="_blank" title="Email"><i class="fas fa-envelope-open-text"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#summary-of-math"><span class="toc-number">1.</span> <span class="toc-text">Summary of Math</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#advanced-mathematics"><span class="toc-number">1.1.</span> <span class="toc-text">Advanced Mathematics</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text">第七章-无穷级数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E6%95%B0%E9%A1%B9%E7%BA%A7%E6%95%B0"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">常数项级数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">第八章-微分方程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E9%98%B6%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">一阶微分方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E9%98%B6%E5%8F%8A%E9%AB%98%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">二阶及高阶线性微分方程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%8C%E9%98%B6%E5%B8%B8%E7%B3%BB%E6%95%B0%E7%BA%BF%E6%80%A7%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%E7%9A%84%E9%80%9A%E8%A7%A3"><span class="toc-number">1.1.2.2.1.</span> <span class="toc-text">二阶常系数线性齐次方程的通解</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%8C%E9%98%B6%E5%B8%B8%E7%B3%BB%E6%95%B0%E7%BA%BF%E6%80%A7%E9%9D%9E%E9%BD%90%E6%AC%A1%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%9A%84%E9%80%9A%E8%A7%A3"><span class="toc-number">1.1.2.2.2.</span> <span class="toc-text">二阶常系数线性非齐次微分方程的通解</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%AF%E9%99%8D%E8%A7%A3%E6%96%B9%E7%A8%8B"><span class="toc-number">1.1.2.2.3.</span> <span class="toc-text">可降解方程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ynfx%E5%9E%8B"><span class="toc-number">1.1.2.2.4.</span> <span class="toc-text">\(y^{(n)}&#x3D;f(x)\)型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ynfx%E5%9E%8B-1"><span class="toc-number">1.1.2.2.5.</span> <span class="toc-text">\(y^{(n)}&#x3D;f(x)\)型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ynfyyprime%E5%9E%8B"><span class="toc-number">1.1.2.2.6.</span> <span class="toc-text">\(y^{(n)}&#x3D;f(y,y\prime)\)型</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/01/07/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Summary%20of%20Math/" title="Summary of Math"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Summary of Math"/></a><div class="content"><a class="title" href="/2023/01/07/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Summary%20of%20Math/" title="Summary of Math">Summary of Math</a><time datetime="2023-01-07T15:26:00.000Z" title="发表于 2023-01-07 23:26:00">2023-01-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/27/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Problems%20Of%20kaoyan/" title="Advice Of Postgraduate Examinations"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Advice Of Postgraduate Examinations"/></a><div class="content"><a class="title" href="/2022/12/27/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Problems%20Of%20kaoyan/" title="Advice Of Postgraduate Examinations">Advice Of Postgraduate Examinations</a><time datetime="2022-12-27T03:43:00.000Z" title="发表于 2022-12-27 11:43:00">2022-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/26/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Machine%20Vision/" title="机器视觉-期末考试"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="机器视觉-期末考试"/></a><div class="content"><a class="title" href="/2022/12/26/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Machine%20Vision/" title="机器视觉-期末考试">机器视觉-期末考试</a><time datetime="2022-12-26T13:06:00.000Z" title="发表于 2022-12-26 21:06:00">2022-12-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/05/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/OS/" title="操作系统-期末考试"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统-期末考试"/></a><div class="content"><a class="title" href="/2022/12/05/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/OS/" title="操作系统-期末考试">操作系统-期末考试</a><time datetime="2022-12-05T07:40:00.000Z" title="发表于 2022-12-05 15:40:00">2022-12-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/25/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Principle%20Of%20Microcomputer/" title="微机原理-期末考试"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微机原理-期末考试"/></a><div class="content"><a class="title" href="/2022/11/25/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Principle%20Of%20Microcomputer/" title="微机原理-期末考试">微机原理-期末考试</a><time datetime="2022-11-25T10:06:00.000Z" title="发表于 2022-11-25 18:06:00">2022-11-25</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By Umbrella</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Umbrella</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/01/07/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Summary%20of%20Math/">http://example.com/2023/01/07/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Summary%20of%20Math/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Umbrella's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/">研究生考试备考</a></div><div class="post_share"><div class="social-share" data-image="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/12/27/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Problems%20Of%20kaoyan/"><img class="next-cover" src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Advice Of Postgraduate Examinations</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/11/21/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Math%20Knowledge%20Points/" title="Math Knowledge Points"><img class="cover" src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-21</div><div class="title">Math Knowledge Points</div></div></a></div><div><a href="/2022/10/22/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/English-worlds/" title="English words"><img class="cover" src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-22</div><div class="title">English words</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://img-blog.csdnimg.cn/4500002a681d49c586c22a88e4ec5868.bmp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Umbrella</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/FeiUmbrella"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/FeiUmbrella" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://blog.csdn.net/qq_51968155?spm=1000.2115.3001.5343" target="_blank" title="CSDN"><i class="fa fa-book-open"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=2199492464&amp;website=www.oicqzone.com" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:2199492464@qq.com" target="_blank" title="Email"><i class="fas fa-envelope-open-text"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#summary-of-math"><span class="toc-number">1.</span> <span class="toc-text">Summary of Math</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#advanced-mathematics"><span class="toc-number">1.1.</span> <span class="toc-text">Advanced Mathematics</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text">第七章-无穷级数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E6%95%B0%E9%A1%B9%E7%BA%A7%E6%95%B0"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">常数项级数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AD%A3%E9%A1%B9%E7%BA%A7%E6%95%B0%E5%88%A4%E6%95%9B%E5%87%86%E5%88%99"><span class="toc-number">1.1.1.1.1.</span> <span class="toc-text">正项级数判敛准则</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%A4%E9%94%99%E7%BA%A7%E6%95%B0"><span class="toc-number">1.1.1.1.2.</span> <span class="toc-text">交错级数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E6%9D%A1%E4%BB%B6%E6%94%B6%E6%95%9B"><span class="toc-number">1.1.1.1.3.</span> <span class="toc-text">绝对&#x2F;条件收敛</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%82%E7%BA%A7%E6%95%B0"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">幂级数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%B0%E5%8B%92%E5%B1%95%E5%BC%80"><span class="toc-number">1.1.1.2.1.</span> <span class="toc-text">泰勒展开</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">傅里叶级数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">第八章-微分方程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E9%98%B6%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">一阶微分方程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E9%98%B6%E5%8F%8A%E9%AB%98%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">二阶及高阶线性微分方程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%8C%E9%98%B6%E5%B8%B8%E7%B3%BB%E6%95%B0%E7%BA%BF%E6%80%A7%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%E7%9A%84%E9%80%9A%E8%A7%A3"><span class="toc-number">1.1.2.2.1.</span> <span class="toc-text">二阶常系数线性齐次方程的通解</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%8C%E9%98%B6%E5%B8%B8%E7%B3%BB%E6%95%B0%E7%BA%BF%E6%80%A7%E9%9D%9E%E9%BD%90%E6%AC%A1%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%9A%84%E9%80%9A%E8%A7%A3"><span class="toc-number">1.1.2.2.2.</span> <span class="toc-text">二阶常系数线性非齐次微分方程的通解</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%AF%E9%99%8D%E8%A7%A3%E6%96%B9%E7%A8%8B"><span class="toc-number">1.1.2.2.3.</span> <span class="toc-text">可降解方程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ynfx%E5%9E%8B"><span class="toc-number">1.1.2.2.4.</span> <span class="toc-text">\(y^{(n)}&#x3D;f(x)\)型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ynfx%E5%9E%8B-1"><span class="toc-number">1.1.2.2.5.</span> <span class="toc-text">\(y^{(n)}&#x3D;f(x)\)型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ynfyyprime%E5%9E%8B"><span class="toc-number">1.1.2.2.6.</span> <span class="toc-text">\(y^{(n)}&#x3D;f(y,y\prime)\)型</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/01/07/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Summary%20of%20Math/" title="Summary of Math"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Summary of Math"/></a><div class="content"><a class="title" href="/2023/01/07/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Summary%20of%20Math/" title="Summary of Math">Summary of Math</a><time datetime="2023-01-07T15:26:00.000Z" title="发表于 2023-01-07 23:26:00">2023-01-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/27/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Problems%20Of%20kaoyan/" title="Advice Of Postgraduate Examinations"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Advice Of Postgraduate Examinations"/></a><div class="content"><a class="title" href="/2022/12/27/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Problems%20Of%20kaoyan/" title="Advice Of Postgraduate Examinations">Advice Of Postgraduate Examinations</a><time datetime="2022-12-27T03:43:00.000Z" title="发表于 2022-12-27 11:43:00">2022-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/26/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Machine%20Vision/" title="机器视觉-期末考试"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="机器视觉-期末考试"/></a><div class="content"><a class="title" href="/2022/12/26/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Machine%20Vision/" title="机器视觉-期末考试">机器视觉-期末考试</a><time datetime="2022-12-26T13:06:00.000Z" title="发表于 2022-12-26 21:06:00">2022-12-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/05/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/OS/" title="操作系统-期末考试"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统-期末考试"/></a><div class="content"><a class="title" href="/2022/12/05/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/OS/" title="操作系统-期末考试">操作系统-期末考试</a><time datetime="2022-12-05T07:40:00.000Z" title="发表于 2022-12-05 15:40:00">2022-12-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/25/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Principle%20Of%20Microcomputer/" title="微机原理-期末考试"><img src="https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微机原理-期末考试"/></a><div class="content"><a class="title" href="/2022/11/25/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%80%83%E8%AF%95%E5%A4%87%E8%80%83/Principle%20Of%20Microcomputer/" title="微机原理-期末考试">微机原理-期末考试</a><time datetime="2022-11-25T10:06:00.000Z" title="发表于 2022-11-25 18:06:00">2022-11-25</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://img-blog.csdnimg.cn/28aff0e4ab5d403581251344fd4c0831.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By Umbrella</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [ ['$','$'], ["\\(","\\)"]],
